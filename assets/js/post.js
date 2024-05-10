@@ -2,12 +2,11 @@ $(document).ready(function () {
     // Carga los posts al cargar la página
     cargarPosts();
 
-    // Filtra los posts según el nombre cuando se escribe en el campo de búsqueda
     $('#searchInput').on('input', function () {
         var searchText = $(this).val().toLowerCase();
         var found = false;
         $('.post').each(function () {
-            var postName = $(this).find('td:first').text().toLowerCase();
+            var postName = $(this).find('td:eq(1)').text().toLowerCase();
             if (postName.includes(searchText)) {
                 $(this).show();
                 found = true;
@@ -23,6 +22,7 @@ $(document).ready(function () {
             $('#noResults').hide();
         }
     });
+
 });
 
 
